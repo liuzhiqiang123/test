@@ -125,12 +125,53 @@
 # print(match)
 
 # 21.
+# import re
+# pattern = r'mr_\w+' #模式字符串
+# string = 'MR_SHOP mr_shop'  #要匹配的字符串
+# match = re.match(pattern,string,re.I)   #匹配字符串，不区分大小写
+# print('匹配值的起始位置：',match.start())
+# print('匹配值的结束位置：',match.end())
+# print('匹配位置的元组：',match.span())
+# print('要匹配的字符串：',match.string)
+# print('匹配数据：',match.group())
+
+# 22.
+# import re
+# pattern = r'mr_\w+' #模式字符串
+# string = 'MR_SHOP mr_shop'  #要匹配的字符串
+# match = re.search(pattern,string,re.I)   #匹配字符串，不区分大小写
+# print(match)    #输出匹配结果
+# string = '项目名称 MR_SHOP mr_shop'
+# match = re.search(pattern,string,re.I)   #匹配字符串，不区分大小写
+# print(match)
+
+# 23.
+# import re
+# pattern = r'mr_\w+' #模式字符串
+# string = 'MR_SHOP mr_shop'  #要匹配的字符串
+# match = re.findall(pattern,string,re.I)   #匹配字符串，不区分大小写
+# print(match)    #输出匹配结果
+# string = '项目名称 MR_SHOP mr_shop'
+# match = re.findall(pattern,string)   #匹配字符串，区分大小写
+# print(match)
+
+# 24.在指定的模式字符串中，包含分组，返回与分组匹配的文本列表
+# import re
+# pattern = r'[1-9]{1,3}(\.[0-9]{1,3}){3}'    #模式字符串
+# str1 = '127.0.0.1 192.168.1.66' #要匹配的字符串
+# match = re.findall(pattern,str1)    #进行模式匹配
+# print(match)
+
+# 25.隐藏中奖信息中的手机号
+# import re
+# pattern = r'1[34578]\d{9}'  #定义要替换的模式字符串
+# string = '中奖号码为：84978981 联系电话为：13611111111'
+# result = re.sub(pattern,'1xxxxxxxxxx',string)   #替换字符串
+# print(result)
+
+# 26.从给定的URL地址中提取出请求地址和各个参数
 import re
-pattern = r'mr_\w+' #模式字符串
-string = 'MR_SHOP mr_shop'  #要匹配的字符串
-match = re.match(pattern,string,re.I)   #匹配字符串，不区分大小写
-print('匹配值的起始位置：',match.start())
-print('匹配值的结束位置：',match.end())
-print('匹配位置的元组：',match.span())
-print('要匹配的字符串：',match.string)
-print('匹配数据：',match.group())
+pattern = r'[?|&]'  #定义分割符
+url = 'http://www.mingrisoft.com/login.jsp?username="mr"&pwd="mrsoft"'
+result = re.split(pattern,url)  #分割字符串
+print(result)
